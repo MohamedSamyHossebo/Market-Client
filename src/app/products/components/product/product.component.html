@@ -1,0 +1,17 @@
+<div class="item mt-4">
+    <div class="d-flex" routerLink="/details/{{data.id}}">
+        <img class="m-auto" [src]="data.image" alt="">
+    </div>
+    <div class="body">
+        <h4 class="text-center text-white-50">{{data.title}}</h4>
+        <p class="text-muted">{{data.description}}</p>
+    </div>
+    <div class="px-3 mb-2 d-flex justify-content-between align-items-center">
+        <button class="btn" *ngIf="!addButton" (click)="addButton=true">Add to cart</button>
+        <div class="d-flex w-50" *ngIf="addButton">
+            <button class="btn m-1" (click)="add();addButton=false">Add</button>
+            <input type="number" class="form-control" onfocus="this.value=''" [(ngModel)]="amount">
+        </div>
+        <span class="m-2">{{data.price}}<span class="text-white">$</span></span>
+    </div>
+</div>
